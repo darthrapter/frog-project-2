@@ -1,0 +1,73 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Write a description of class MyWorld here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class Road extends World
+{
+    private int level = 1;
+    private int lives = 5;
+    private int score = 0;
+    Frog frog = new Frog();
+    
+    
+    
+    
+   
+    public Road()
+    {
+        super(800, 600, 1);
+        
+    }
+    public void build()
+    {
+        addObject(new Frog(), 418, 580);
+        addObject(new car1(), 43, 509);
+        addObject( new var2(), Greenfoot.getRandomNumber(700)+50, 200);
+        addObject( new var3(), Greenfoot.getRandomNumber(700)+50, 250);
+        addObject( new car4(), Greenfoot.getRandomNumber(700)+50, 300);
+        addObject( new car5(), Greenfoot.getRandomNumber(700)+50, 350);
+       
+    }
+    public void levels()
+    {
+        level = level + 1;
+        if (level %5 == 0)
+            {
+                lives = lives ++;
+            }
+       
+        
+    }
+    public void livesDown()
+    {
+        lives = lives--;
+        
+        if (lives == 0)
+        {
+           // gameOver();
+        }
+        else
+        {
+            //
+        }
+        
+        
+    }
+   /** public static void gameOver(String[] args)
+    {
+        int[][] scoreBoard = new int[2][5];
+        for (int j = 0; j < 5; j++)
+        {
+            if (score >= scoreBoard[1][j])
+            {
+                scoreBoard[1][j] = score;
+            }
+            
+        }
+    }
+    */
+}
