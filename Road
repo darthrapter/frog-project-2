@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Road extends World
 {
     private int level = 1;
-    private int lives = 5;
+    private static int lives = 5;
     private int score = 0;
     Frog frog = new Frog();
     
@@ -21,16 +21,25 @@ public class Road extends World
     {
         super(800, 600, 1);
         
+        build();
+        
     }
     public void build()
     {
-        addObject(new Frog(), 418, 580);
-        addObject(new car1(), 43, 509);
-        addObject( new var2(), Greenfoot.getRandomNumber(700)+50, 200);
-        addObject( new var3(), Greenfoot.getRandomNumber(700)+50, 250);
-        addObject( new car4(), Greenfoot.getRandomNumber(700)+50, 300);
-        addObject( new car5(), Greenfoot.getRandomNumber(700)+50, 350);
-       
+        addObject(new Frog(), 400, 585);
+        addObject(new car1(), Greenfoot.getRandomNumber(700)+50, 511);
+        addObject(new car1(), Greenfoot.getRandomNumber(700)+50, 460);
+        addObject(new var2(), Greenfoot.getRandomNumber(700)+50, 344);
+        addObject(new var2(), Greenfoot.getRandomNumber(700)+50, 245);
+        addObject(new var3(), Greenfoot.getRandomNumber(700)+50, 294);
+        addObject(new var3(), Greenfoot.getRandomNumber(700)+50, 112);
+        addObject(new car4(), Greenfoot.getRandomNumber(700)+50, 159);
+        addObject(new car5(), Greenfoot.getRandomNumber(700)+50, 61);
+        addObject(new Goal(), 400, 17);
+        GreenfootImage image = this.getBackground();
+        image.drawString("LEVEL:  " + level, 720, 560);
+        image.drawString("LIVES:  " + lives, 720, 580);
+        
     }
     public void levels()
     {
@@ -39,21 +48,23 @@ public class Road extends World
             {
                 lives = lives ++;
             }
-       
+       //Greenfoot.setWorld(new Road());
+       build();
         
     }
-    public void livesDown()
+    
+   public static void livesDown()
     {
-        lives = lives--;
+        lives = lives - 1;
         
-        if (lives == 0)
-        {
+        //if (lives == 0)
+        //{
            // gameOver();
-        }
-        else
-        {
+        //}
+        //else
+        //{
             //
-        }
+        //}
         
         
     }
